@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Litoral Diesel · Assistência técnica Yanmar Marine</title>
+<meta name="description" content="Litoral Diesel: assistência técnica autorizada Yanmar Marine em Angra dos Reis (RJ) e Salvador (BA). Revisão, diagnóstico, garantia e peças genuínas para motores marítimos Yanmar.">
+<meta property="og:title" content="Litoral Diesel · Assistência técnica Yanmar Marine">
+<meta property="og:description" content="Revisão, diagnóstico, garantia e peças genuínas para motores marítimos Yanmar. Angra dos Reis e Salvador.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#111316">
+<link rel="icon" type="image/png" href="logo-marca.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: faixas de largura total alternando casco escuro (grafite) e convés claro;
+   grade de 12 colunas por dentro; um momento forte = hero com esteira animada. */
+:root {
+  --casco: #111316;        /* grafite quase preto, levemente azulado */
+  --casco-2: #1a1d22;
+  --conves: #f3f2ef;       /* claro neutro com leve calor */
+  --branco: #ffffff;
+  --tinta: #15171a;
+  --tinta-2: #4a4f57;
+  --linha-clara: #dcdad5;
+  --linha-escura: #2c3037;
+  --vermelho: #d7241c;     /* vermelho Yanmar */
+  --vermelho-escuro: #a9160f;
+  --aco: #9aa2ad;
+  --display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --texto: 'Source Sans 3', 'Segoe UI', Arial, sans-serif;
+  --dado: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--conves); color: var(--tinta); font-family: var(--texto); font-size: 17px; line-height: 1.6; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--casco); }
+a { color: inherit; }
+.miolo { max-width: 1200px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.02; text-wrap: balance; margin: 0; letter-spacing: 0.005em; }
+h2 { font-size: clamp(34px, 4.6vw, 56px); text-transform: uppercase; }
+h3 { font-size: 24px; text-transform: uppercase; letter-spacing: 0.02em; }
+p { margin: 0; }
+.sobretitulo { font-family: var(--dado); font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--vermelho); display: block; margin-bottom: 14px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 13px 24px; border: 2px solid transparent; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+.btn-vermelho { background: var(--vermelho); color: #fff; }
+.btn-vermelho:hover { background: var(--vermelho-escuro); }
+.btn-contorno { border-color: currentColor; color: inherit; background: transparent; }
+.btn-contorno:hover { background: rgba(255,255,255,0.08); }
+.btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--vermelho); outline-offset: 3px; }
+
+/* ---------- topo ---------- */
+.topo { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(17,19,22,0.94); backdrop-filter: blur(8px); color: #fff; border-bottom: 1px solid var(--linha-escura); }
+.topo .miolo { display: flex; align-items: center; gap: 28px; height: 74px; }
+.topo-logo img { height: 46px; width: auto; display: block; }
+.topo nav { display: flex; gap: 22px; margin-left: auto; }
+.topo nav a { font-family: var(--display); font-weight: 500; font-size: 17px; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; color: #d6d9de; padding: 6px 0; border-bottom: 2px solid transparent; }
+.topo nav a:hover { color: #fff; border-bottom-color: var(--vermelho); }
+.topo .btn { padding: 10px 18px; font-size: 16px; }
+.menu-botao { display: none; margin-left: auto; background: none; border: 1px solid #3a3f47; color: #fff; font-family: var(--display); font-size: 16px; letter-spacing: .08em; text-transform: uppercase; padding: 8px 14px; }
+@media (max-width: 980px) {
+  .topo nav, .topo .btn { display: none; }
+  .menu-botao { display: block; }
+  .topo.aberto nav { display: flex; position: absolute; top: 74px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--casco); padding: 8px max(20px, env(safe-area-inset-right, 0px)) 16px max(20px, env(safe-area-inset-left, 0px)); border-bottom: 1px solid var(--linha-escura); }
+  .topo.aberto nav a { padding: 12px 0; border-bottom: 1px solid var(--linha-escura); }
+}
+
+/* ---------- hero ---------- */
+.hero { position: relative; background: var(--casco); color: #fff; overflow: hidden; }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero-marca { position: absolute; right: -6%; top: 50%; transform: translateY(-46%); width: min(780px, 70%); opacity: 0.08; pointer-events: none; }
+.hero .miolo { position: relative; padding-block: clamp(72px, 11vw, 140px) clamp(64px, 8vw, 110px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 40px; align-items: end; }
+.hero h1 { font-size: clamp(48px, 7.6vw, 104px); text-transform: uppercase; }
+.hero h1 em { font-style: normal; color: var(--vermelho); }
+.hero-texto { font-size: 19px; color: #c9cdd3; max-width: 34em; margin-top: 22px; }
+.hero-acoes { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+.hero-ficha { border-left: 1px solid var(--linha-escura); padding-left: 28px; display: grid; gap: 22px; }
+.hero-ficha div { display: grid; gap: 2px; }
+.hero-ficha dt { font-family: var(--dado); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--aco); }
+.hero-ficha dd { margin: 0; font-family: var(--display); font-size: 26px; font-weight: 600; text-transform: uppercase; letter-spacing: .02em; }
+@media (max-width: 860px) { .hero .miolo { grid-template-columns: minmax(0, 1fr); } .hero-ficha { border-left: none; border-top: 1px solid var(--linha-escura); padding: 24px 0 0; grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------- faixas ---------- */
+.faixa { padding-block: clamp(64px, 9vw, 112px); }
+.faixa-escura { background: var(--casco); color: #fff; }
+.faixa-escura .texto-2 { color: #b7bcc4; }
+.faixa-branca { background: var(--branco); }
+.cabeca { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 40px; align-items: end; margin-bottom: 48px; }
+.cabeca p { color: var(--tinta-2); font-size: 18px; max-width: 36em; }
+.faixa-escura .cabeca p { color: #b7bcc4; }
+@media (max-width: 860px) { .cabeca { grid-template-columns: minmax(0, 1fr); gap: 18px; } }
+
+/* lazer x trabalho */
+.segmentos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; background: var(--linha-clara); border: 2px solid var(--linha-clara); }
+.segmento { background: var(--branco); padding: 40px 36px 36px; display: grid; gap: 16px; align-content: start; position: relative; min-width: 0; }
+.segmento svg { width: 100%; height: 120px; display: block; }
+.segmento p { color: var(--tinta-2); }
+.segmento ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.segmento li { padding-left: 22px; position: relative; }
+.segmento li::before { content: ""; position: absolute; left: 0; top: 11px; width: 10px; height: 2px; background: var(--vermelho); }
+@media (max-width: 760px) { .segmentos { grid-template-columns: minmax(0, 1fr); } .segmento { padding: 30px 22px; } }
+
+/* motores — régua de potência */
+.regua { border-top: 1px solid var(--linha-escura); }
+.regua-eixo { display: grid; grid-template-columns: 170px minmax(0, 1fr) 150px; gap: 20px; padding: 14px 0 10px; font-family: var(--dado); font-size: 12px; color: var(--aco); letter-spacing: .06em; }
+.regua-eixo .marcas { position: relative; height: 16px; }
+.regua-eixo .marcas span { position: absolute; transform: translateX(-50%); }
+.serie { display: grid; grid-template-columns: 170px minmax(0, 1fr) 150px; gap: 20px; align-items: center; padding: 16px 0; border-top: 1px solid var(--linha-escura); }
+.serie-nome { font-family: var(--display); font-size: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: .02em; }
+.serie-nome small { display: block; font-family: var(--texto); font-weight: 400; font-size: 13.5px; text-transform: none; letter-spacing: 0; color: #a5abb4; line-height: 1.3; margin-top: 2px; }
+.trilho { position: relative; height: 14px; background: repeating-linear-gradient(90deg, #2a2e35 0 1px, transparent 1px 10%); border-radius: 2px; }
+.trilho span { position: absolute; top: 0; bottom: 0; background: var(--vermelho); border-radius: 2px; min-width: 6px; }
+.serie-pot { font-family: var(--dado); font-size: 15px; text-align: right; font-variant-numeric: tabular-nums; }
+.regua-nota { font-size: 14px; color: #8f96a0; margin-top: 18px; }
+@media (max-width: 760px) {
+  .regua-eixo { display: none; }
+  .serie { grid-template-columns: minmax(0, 1fr) auto; row-gap: 10px; }
+  .trilho { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* serviços */
+.servicos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 2px solid var(--tinta); }
+.servico { padding: 26px 22px 30px 0; border-bottom: 1px solid var(--linha-clara); display: grid; gap: 10px; align-content: start; min-width: 0; }
+.servico + .servico { padding-left: 22px; border-left: 1px solid var(--linha-clara); }
+.servico:nth-child(4n+1) { padding-left: 0; border-left: none; }
+.servico p { color: var(--tinta-2); font-size: 16px; }
+.servico .icone { width: 34px; height: 34px; color: var(--vermelho); }
+@media (max-width: 980px) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } .servico:nth-child(4n+1) { padding-left: 22px; border-left: 1px solid var(--linha-clara); } .servico:nth-child(2n+1) { padding-left: 0; border-left: none; } }
+@media (max-width: 560px) { .servicos { grid-template-columns: minmax(0, 1fr); } .servico, .servico + .servico { padding-left: 0; border-left: none; } }
+
+/* como funciona */
+.etapas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; counter-reset: etapa; }
+.etapa { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.etapa::before { counter-increment: etapa; content: counter(etapa, decimal-leading-zero); font-family: var(--dado); font-size: 13px; color: var(--vermelho); border-top: 2px solid var(--vermelho); padding-top: 10px; }
+.etapa p { color: #b7bcc4; font-size: 16px; }
+@media (max-width: 860px) { .etapas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .etapas { grid-template-columns: minmax(0, 1fr); } }
+
+/* histórico do motor (ficha) */
+.historico { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 56px; align-items: center; }
+.ficha { background: var(--casco); color: #e8eaed; border-radius: 4px; padding: 26px 26px 22px; font-size: 15px; box-shadow: 0 30px 60px -30px rgba(17,19,22,0.5); min-width: 0; }
+.ficha-topo { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; border-bottom: 1px solid var(--linha-escura); padding-bottom: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+.ficha-topo strong { font-family: var(--display); font-size: 24px; text-transform: uppercase; letter-spacing: .03em; }
+.ficha-topo span { font-family: var(--dado); font-size: 12px; color: var(--aco); }
+.ficha-linha { display: grid; grid-template-columns: 92px minmax(0, 1fr) auto; gap: 14px; padding: 10px 0; border-bottom: 1px solid #23272d; align-items: baseline; }
+.ficha-linha time, .ficha-linha .h { font-family: var(--dado); font-size: 12.5px; color: var(--aco); font-variant-numeric: tabular-nums; }
+.etiqueta { font-family: var(--dado); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; }
+.etiqueta.ok { background: rgba(84,180,120,0.16); color: #8fd4a8; }
+.etiqueta.alerta { background: rgba(215,36,28,0.2); color: #ff8a80; }
+.ficha-nota { font-family: var(--dado); font-size: 11.5px; color: #7d848d; margin-top: 12px; }
+.historico ul { margin: 22px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.historico li { padding-left: 22px; position: relative; color: var(--tinta-2); }
+.historico li::before { content: ""; position: absolute; left: 0; top: 11px; width: 10px; height: 2px; background: var(--vermelho); }
+@media (max-width: 860px) { .historico { grid-template-columns: minmax(0, 1fr); gap: 36px; } }
+
+/* peças + contrato */
+.duas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.cartao { background: var(--branco); border: 1px solid var(--linha-clara); padding: 34px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.cartao p { color: var(--tinta-2); }
+.cartao .btn { justify-self: start; margin-top: 6px; }
+@media (max-width: 760px) { .duas { grid-template-columns: minmax(0, 1fr); } .cartao { padding: 26px 22px; } }
+
+/* unidades */
+.unidades { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; background: var(--linha-escura); border: 2px solid var(--linha-escura); }
+.unidade { background: var(--casco-2); padding: 34px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.unidade .uf { font-family: var(--dado); font-size: 12px; color: var(--vermelho); letter-spacing: .12em; }
+.unidade p { color: #b7bcc4; }
+.coord { font-family: var(--dado); font-size: 12.5px; color: var(--aco); }
+.isca { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.a-definir { font-family: var(--dado); font-size: 12px; color: #f0b429; border: 1px dashed #6f5a1d; padding: 1px 6px; }
+@media (max-width: 760px) { .unidades { grid-template-columns: minmax(0, 1fr); } .unidade { padding: 26px 22px; } }
+
+/* agendamento */
+.agendar { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; }
+form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 18px; }
+.campo { display: grid; gap: 6px; min-width: 0; }
+.campo.largo { grid-column: 1 / -1; }
+label { font-family: var(--dado); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--tinta-2); }
+input, select, textarea { font: inherit; font-size: 16px; color: var(--tinta); background: var(--branco); border: 1px solid #c9c6bf; border-radius: 0; padding: 12px 14px; width: 100%; }
+textarea { min-height: 110px; resize: vertical; }
+.form-acoes { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.form-retorno { font-size: 15px; color: var(--tinta-2); }
+.form-retorno.ok { color: #1f7a45; }
+.form-retorno.erro { color: var(--vermelho-escuro); }
+@media (max-width: 860px) { .agendar { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
+@media (max-width: 520px) { form { grid-template-columns: minmax(0, 1fr); } }
+
+/* rodapé */
+.rodape { background: #0b0c0e; color: #9aa0a8; padding-block: 56px 40px; font-size: 15px; }
+.rodape .miolo { display: grid; grid-template-columns: minmax(0, 4fr) repeat(3, minmax(0, 2fr)); gap: 32px; }
+.rodape img { height: 64px; width: auto; }
+.rodape h4 { font-family: var(--display); font-size: 17px; letter-spacing: .08em; text-transform: uppercase; color: #fff; margin: 0 0 12px; font-weight: 600; }
+.rodape ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.rodape a { text-decoration: none; }
+.rodape a:hover { color: #fff; }
+.rodape-base { grid-column: 1 / -1; border-top: 1px solid #1f2227; padding-top: 22px; margin-top: 8px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13.5px; }
+@media (max-width: 860px) { .rodape .miolo { grid-template-columns: repeat(2, minmax(0, 1fr)); } .rodape .miolo > :first-child { grid-column: 1 / -1; } }
+</style>
+</head>
+<body>
+
+<header class="topo" id="topo">
+  <div class="miolo">
+    <a class="topo-logo" href="#inicio" aria-label="Litoral Diesel — início"><img src="logo-clara.png" alt="Litoral Diesel — Yanmar"></a>
+    <nav aria-label="Principal">
+      <a href="#motores">Motores Yanmar</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#pecas">Peças</a>
+      <a href="#historico">Histórico do motor</a>
+      <a href="#unidades">Unidades</a>
+    </nav>
+    <a class="btn btn-vermelho" href="#agendar">Agendar atendimento</a>
+    <button class="menu-botao" type="button" aria-expanded="false" aria-controls="topo" id="menu-botao">Menu</button>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero" aria-labelledby="hero-titulo">
+    <canvas id="esteira" aria-hidden="true"></canvas>
+    <img class="hero-marca" src="logo-marca.png" alt="" aria-hidden="true">
+    <div class="miolo">
+      <div>
+        <span class="sobretitulo">Assistência técnica autorizada Yanmar Marine</span>
+        <h1 id="hero-titulo">Seu motor Yanmar <em>na mão de quem conhece</em></h1>
+        <p class="hero-texto">Revisão, diagnóstico, garantia e peças genuínas para motores marítimos Yanmar. A gente vai até a sua marina, registra cada atendimento e avisa quando a próxima revisão está chegando.</p>
+        <div class="hero-acoes">
+          <a class="btn btn-vermelho" href="#agendar">Agendar revisão</a>
+          <a class="btn btn-contorno" href="#motores">Conhecer os motores</a>
+        </div>
+      </div>
+      <dl class="hero-ficha">
+        <div><dt>Unidades</dt><dd>Angra dos Reis · Salvador</dd></div>
+        <div><dt>Atendimento</dt><dd>Na marina ou na oficina</dd></div>
+        <div><dt>Motores</dt><dd>De 10 a 640 mhp</dd></div>
+        <div><dt>Registro</dt><dd>Relatório digital com fotos</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="faixa" aria-labelledby="seg-titulo">
+    <div class="miolo">
+      <div class="cabeca">
+        <div><span class="sobretitulo">Para cada tipo de embarcação</span><h2 id="seg-titulo">Lazer ou trabalho, o motor é o mesmo cuidado</h2></div>
+        <p>Atendemos donos de lanchas e veleiros que querem o barco pronto no fim de semana, e operadores de embarcações de trabalho que não podem parar.</p>
+      </div>
+      <div class="segmentos">
+        <article class="segmento">
+          <svg viewBox="0 0 400 120" role="img" aria-label="Silhueta de lancha"><path d="M20 82 L300 82 L370 60 L120 60 L90 44 L60 44 L70 60 L20 60 Z" fill="none" stroke="#15171a" stroke-width="2.5" stroke-linejoin="round"/><path d="M10 96 C80 88 150 104 220 96 S340 88 390 96" fill="none" stroke="#d7241c" stroke-width="2.5"/><path d="M40 108 C110 100 170 114 240 108" fill="none" stroke="#9aa2ad" stroke-width="1.5"/></svg>
+          <h3>Lazer</h3>
+          <p>Lanchas, iates e veleiros com motor de centro, rabeta ou saildrive.</p>
+          <ul>
+            <li>Revisão antes da temporada</li>
+            <li>Atendimento no píer, sem tirar o barco da água quando possível</li>
+            <li>Garantia Yanmar e registro do motor</li>
+          </ul>
+        </article>
+        <article class="segmento">
+          <svg viewBox="0 0 400 120" role="img" aria-label="Silhueta de embarcação de trabalho"><path d="M20 84 L360 84 L380 62 L250 62 L250 34 L180 34 L180 62 L20 62 Z" fill="none" stroke="#15171a" stroke-width="2.5" stroke-linejoin="round"/><path d="M196 34 L196 18 M214 34 L214 22" stroke="#15171a" stroke-width="2.5"/><path d="M10 98 C80 90 150 106 220 98 S340 90 390 98" fill="none" stroke="#d7241c" stroke-width="2.5"/><path d="M40 110 C110 102 170 116 240 110" fill="none" stroke="#9aa2ad" stroke-width="1.5"/></svg>
+          <h3>Trabalho</h3>
+          <p>Embarcações de apoio, pesca, transporte e serviço que rodam muitas horas por dia.</p>
+          <ul>
+            <li>Manutenção programada pelo horímetro</li>
+            <li>Diagnóstico rápido pra reduzir o tempo parado</li>
+            <li>Peças com prazo acompanhado do pedido à entrega</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa faixa-escura" id="motores" aria-labelledby="mot-titulo">
+    <div class="miolo">
+      <div class="cabeca">
+        <div><span class="sobretitulo">Linha Yanmar Marine</span><h2 id="mot-titulo">Do veleiro ao iate: 10 a 640 mhp</h2></div>
+        <p>Vendemos, instalamos e mantemos a linha de motores diesel marítimos Yanmar. Cada barra mostra a faixa de potência da série na mesma escala.</p>
+      </div>
+      <div class="regua" role="table" aria-label="Séries de motores Yanmar Marine e faixas de potência">
+        <div class="regua-eixo" aria-hidden="true">
+          <span>Série</span>
+          <div class="marcas" id="marcas"></div>
+          <span style="text-align:right">Potência (mhp)</span>
+        </div>
+        <div id="series"></div>
+      </div>
+      <p class="regua-nota">mhp = cavalo-vapor métrico, como a Yanmar informa. Faixas da linha atual no site da Yanmar Marine; a configuração certa para o seu barco a gente confirma na visita.</p>
+    </div>
+  </section>
+
+  <section class="faixa faixa-branca" id="servicos" aria-labelledby="serv-titulo">
+    <div class="miolo">
+      <div class="cabeca">
+        <div><span class="sobretitulo">Serviços</span><h2 id="serv-titulo">Tudo que o motor precisa, num lugar só</h2></div>
+        <p>Técnicos treinados na linha Yanmar, ferramenta de diagnóstico eletrônico e relatório de cada atendimento com fotos, horímetro e assinatura.</p>
+      </div>
+      <div class="servicos">
+        <article class="servico"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg><h3>Manutenção preventiva</h3><p>Revisões pelo horímetro ou pela data, seguindo o plano de manutenção Yanmar do seu motor.</p></article>
+        <article class="servico"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg><h3>Manutenção corretiva</h3><p>Reparo de vazamentos, superaquecimento, perda de potência e falhas de partida.</p></article>
+        <article class="servico"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="12" rx="1"/><path d="M7 13l3-3 2 2 4-4M8 21h8"/></svg><h3>Diagnóstico eletrônico</h3><p>Leitura de falhas e parâmetros dos motores common rail com ferramenta de diagnóstico.</p></article>
+        <article class="servico"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><h3>Diagnóstico mecânico</h3><p>Compressão, injeção, arrefecimento e transmissão avaliados no barco.</p></article>
+        <article class="servico"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><h3>Garantia Yanmar</h3><p>Atendimento em garantia como assistência autorizada, com registro do motor.</p></article>
+        <article class="servico"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 17l6-6 4 4 6-8"/><path d="M14 7h6v6"/></svg><h3>Repotenciação</h3><p>Troca do motor antigo por um Yanmar novo: projeto, instalação por etapas e entrega.</p></article>
+        <article class="servico"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg><h3>Visita técnica</h3><p>Inspeção no local para orçamento, com relatório do que foi encontrado.</p></article>
+        <article class="servico"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h10M4 17h7"/><circle cx="18" cy="16" r="3"/></svg><h3>Avaliação de compra e venda</h3><p>Laudo do motor antes de comprar ou vender um barco usado.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa faixa-escura" aria-labelledby="como-titulo">
+    <div class="miolo">
+      <div class="cabeca">
+        <div><span class="sobretitulo">Como funciona</span><h2 id="como-titulo">Do chamado ao relatório assinado</h2></div>
+        <p>O mesmo processo em toda unidade. Você sabe quem vai, quando chega e o que foi feito.</p>
+      </div>
+      <div class="etapas">
+        <div class="etapa"><h3>Agendamento</h3><p>Você conta o problema ou pede a revisão. A gente confirma dia, hora e técnico.</p></div>
+        <div class="etapa"><h3>Deslocamento</h3><p>O técnico vai até a sua marina com ferramenta e as peças mais comuns já separadas.</p></div>
+        <div class="etapa"><h3>Atendimento</h3><p>Diagnóstico, serviço e fotos de antes e depois, registrados no relatório digital.</p></div>
+        <div class="etapa"><h3>Relatório</h3><p>Você confere e assina na hora. O relatório fica no histórico do motor.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa" id="historico" aria-labelledby="hist-titulo">
+    <div class="miolo historico">
+      <div>
+        <span class="sobretitulo">Histórico do motor</span>
+        <h2 id="hist-titulo">Cada atendimento fica guardado</h2>
+        <p style="margin-top:18px;color:var(--tinta-2);font-size:18px">Todo serviço vira um registro: o que foi feito, quem fez, horímetro, peças e fotos. Na próxima visita o técnico já sabe a história do seu motor.</p>
+        <ul>
+          <li>Aviso de revisão pelo horímetro ou pela data</li>
+          <li>Relatório assinado na hora, com fotos</li>
+          <li>Histórico ajuda na revenda do barco</li>
+        </ul>
+      </div>
+      <div class="ficha" aria-label="Exemplo de histórico de um motor">
+        <div class="ficha-topo"><strong>Yanmar 6LY · Boreste</strong><span>EXEMPLO ILUSTRATIVO</span></div>
+        <div class="ficha-linha"><time>12/09/2026</time><span>Revisão preventiva · troca de óleo, filtros e impelidor</span><span class="h">1.480 h</span></div>
+        <div class="ficha-linha"><time>03/05/2026</time><span>Diagnóstico eletrônico · alarme de temperatura</span><span class="h">1.322 h</span></div>
+        <div class="ficha-linha"><time>18/11/2025</time><span>Revisão preventiva</span><span class="h">1.105 h</span></div>
+        <div class="ficha-linha" style="border-bottom:none"><time>Próxima</time><span>Revisão preventiva</span><span class="etiqueta alerta">Faltam 20 h</span></div>
+        <p class="ficha-nota">Dados de exemplo, só pra mostrar como fica.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa faixa-branca" id="pecas" aria-labelledby="pecas-titulo">
+    <div class="miolo">
+      <div class="cabeca">
+        <div><span class="sobretitulo">Peças e manutenção programada</span><h2 id="pecas-titulo">Peça genuína, com prazo acompanhado</h2></div>
+        <p>Filtros, impelidores, correias, anodos e kits de revisão para a linha Yanmar Marine.</p>
+      </div>
+      <div class="duas">
+        <article class="cartao">
+          <h3>Peças genuínas Yanmar</h3>
+          <p>Mande o modelo do motor e o número de série que a gente identifica a peça certa. Itens importados têm o pedido acompanhado até a chegada, e você é avisado.</p>
+          <a class="btn btn-vermelho" href="#agendar">Pedir orçamento de peça</a>
+        </article>
+        <article class="cartao">
+          <h3>Plano de manutenção</h3>
+          <p>Para quem não quer se preocupar: a gente acompanha as horas do motor e agenda as revisões do ano. Ideal pra frota e pra quem usa o barco o ano inteiro.</p>
+          <a class="btn btn-contorno" href="#agendar">Quero conhecer o plano</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa faixa-escura" id="unidades" aria-labelledby="uni-titulo">
+    <div class="miolo">
+      <div class="cabeca">
+        <div><span class="sobretitulo">Onde estamos</span><h2 id="uni-titulo">Duas bases no litoral</h2></div>
+        <p>Atendemos nas marinas e iates clubes da região de cada unidade, e na oficina.</p>
+      </div>
+      <div class="unidades">
+        <article class="unidade">
+          <span class="uf">RJ</span>
+          <h3>Angra dos Reis</h3>
+          <p>Matriz. Atendimento em Angra, Paraty e marinas da Costa Verde.</p>
+          <p class="coord">23°00′ S · 44°19′ O</p>
+        </article>
+        <article class="unidade">
+          <span class="uf">BA</span>
+          <h3>Salvador</h3>
+          <p>Unidade perto da Bahia Marina. Atendimento na Baía de Todos-os-Santos.</p>
+          <p class="coord">12°58′ S · 38°31′ O</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa" id="agendar" aria-labelledby="ag-titulo">
+    <div class="miolo agendar">
+      <div>
+        <span class="sobretitulo">Agendar atendimento</span>
+        <h2 id="ag-titulo">Conte o que o seu motor precisa</h2>
+        <p style="margin-top:18px;color:var(--tinta-2);font-size:18px">Responda em menos de um minuto. A equipe da unidade mais perto retorna pra confirmar dia e hora.</p>
+      </div>
+      <form id="form-agendar" novalidate>
+        <div class="campo"><label for="f-nome">Seu nome</label><input id="f-nome" name="nome" required autocomplete="name"></div>
+        <div class="campo"><label for="f-tel">WhatsApp</label><input id="f-tel" name="telefone" required inputmode="tel" autocomplete="tel" placeholder="(21) 99999-0000"></div>
+        <div class="campo"><label for="f-unidade">Unidade</label><select id="f-unidade" name="unidade"><option>Angra dos Reis (RJ)</option><option>Salvador (BA)</option></select></div>
+        <div class="campo"><label for="f-servico">Serviço</label><select id="f-servico" name="servico"><option>Revisão preventiva</option><option>Problema no motor</option><option>Garantia Yanmar</option><option>Peças</option><option>Repotenciação</option><option>Avaliação de compra e venda</option></select></div>
+        <div class="campo"><label for="f-motor">Motor (modelo)</label><input id="f-motor" name="motor" placeholder="Ex.: 4JH, 6LY, 8LV"></div>
+        <div class="campo"><label for="f-marina">Onde está o barco</label><input id="f-marina" name="marina" placeholder="Marina ou iate clube"></div>
+        <div class="campo largo"><label for="f-msg">O que está acontecendo</label><textarea id="f-msg" name="mensagem" placeholder="Ex.: alarme de temperatura em velocidade de cruzeiro"></textarea></div>
+        <div class="isca" aria-hidden="true"><label for="f-empresa">Empresa</label><input id="f-empresa" name="empresa_site" tabindex="-1" autocomplete="off"></div>
+        <div class="form-acoes">
+          <button class="btn btn-vermelho" type="submit">Enviar pedido</button>
+          <span class="form-retorno" id="form-retorno" role="status"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="miolo">
+    <div>
+      <img src="logo-clara.png" alt="Litoral Diesel — Yanmar">
+      <p style="margin-top:16px;max-width:30em">Litoral Diesel Motores. Assistência técnica autorizada Yanmar Marine em Angra dos Reis (RJ) e Salvador (BA).</p>
+    </div>
+    <div><h4>Motores</h4><ul><li><a href="#motores">Linha Yanmar Marine</a></li><li><a href="#servicos">Repotenciação</a></li><li><a href="#pecas">Peças genuínas</a></li></ul></div>
+    <div><h4>Serviços</h4><ul><li><a href="#servicos">Manutenção preventiva</a></li><li><a href="#servicos">Diagnóstico</a></li><li><a href="#servicos">Garantia Yanmar</a></li></ul></div>
+    <div><h4>Empresa</h4><ul><li><a href="#unidades">Unidades</a></li><li><a href="#historico">Histórico do motor</a></li><li><a href="#agendar">Agendar atendimento</a></li></ul></div>
+    <div class="rodape-base"><span>© 2026 Litoral Diesel Motores LTDA</span><span>litoraldiesel.com.br</span></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Séries Yanmar Marine (faixa de potência em mhp, conforme yanmar.com/marine).
+  var SERIES = [
+    { nome: 'GM', desc: 'Compacto, veleiros pequenos', min: 10, max: 10 },
+    { nome: 'YM', desc: 'Veleiros e auxiliares', min: 15, max: 30 },
+    { nome: 'JH-CR', desc: 'Common rail, veleiros e lanchas', min: 40, max: 110 },
+    { nome: '4LV', desc: 'Centro ou rabeta', min: 150, max: 250 },
+    { nome: '8LV', desc: 'V8, centro ou rabeta', min: 320, max: 370 },
+    { nome: '6LY-CR', desc: 'Common rail, lanchas e iates', min: 400, max: 440 },
+    { nome: '6LF', desc: 'Lanchas e iates', min: 485, max: 550 },
+    { nome: '6LT', desc: 'Topo da linha', min: 500, max: 640 },
+  ];
+  var MAX = 700;
+  var pct = function (v) { return (v / MAX) * 100; };
+  var alvo = document.getElementById('series');
+  SERIES.forEach(function (s) {
+    var linha = document.createElement('div');
+    linha.className = 'serie'; linha.setAttribute('role', 'row');
+    var largura = Math.max(pct(s.max) - pct(s.min), 0.9);
+    linha.innerHTML =
+      '<div class="serie-nome" role="rowheader">' + s.nome + '<small>' + s.desc + '</small></div>' +
+      '<div class="trilho" role="cell" aria-hidden="true"><span style="left:' + pct(s.min) + '%;width:' + largura + '%"></span></div>' +
+      '<div class="serie-pot" role="cell">' + (s.min === s.max ? s.min : s.min + '–' + s.max) + ' mhp</div>';
+    alvo.appendChild(linha);
+  });
+  var marcas = document.getElementById('marcas');
+  [0, 100, 200, 300, 400, 500, 600, 700].forEach(function (v) {
+    var m = document.createElement('span'); m.style.left = pct(v) + '%'; m.textContent = v; marcas.appendChild(m);
+  });
+
+  // Menu no celular
+  var topo = document.getElementById('topo');
+  var botao = document.getElementById('menu-botao');
+  botao.addEventListener('click', function () {
+    var aberto = topo.classList.toggle('aberto');
+    botao.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+    botao.textContent = aberto ? 'Fechar' : 'Menu';
+  });
+  topo.querySelectorAll('nav a').forEach(function (a) { a.addEventListener('click', function () { topo.classList.remove('aberto'); botao.setAttribute('aria-expanded', 'false'); botao.textContent = 'Menu'; }); });
+
+  // Formulário (nesta prévia não envia: mostra o que seria enviado)
+  var form = document.getElementById('form-agendar');
+  var retorno = document.getElementById('form-retorno');
+  // Envia o pedido pro Litoral Manage: grava e avisa a equipe no sino.
+  // WhatsApp de cada unidade (só números, com 55 + DDD). Vazio = não abre o WhatsApp.
+  var WHATSAPP = { 'Angra dos Reis': '5524992622732', 'Salvador': '557181296435' };
+  var API = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? 'http://localhost:3001' : 'https://litoral-manage-backend.onrender.com';
+  var ERROS = { nome_obrigatorio: 'Preencha seu nome.', telefone_invalido: 'Informe um WhatsApp com DDD.', muitas_tentativas_tente_mais_tarde: 'Muitos envios seguidos. Tente de novo em alguns minutos.' };
+  var enviando = false;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (enviando) return;
+    var nome = form.nome.value.trim(), tel = form.telefone.value.replace(/\D/g, '');
+    if (!nome || tel.length < 10) {
+      retorno.className = 'form-retorno erro';
+      retorno.textContent = !nome ? ERROS.nome_obrigatorio : ERROS.telefone_invalido;
+      return;
+    }
+    var botao = form.querySelector('button[type=submit]');
+    enviando = true; botao.disabled = true; botao.textContent = 'Enviando…';
+    retorno.className = 'form-retorno'; retorno.textContent = '';
+    var dados = {};
+    new FormData(form).forEach(function (v, k) { dados[k] = v; });
+    var unidade = form.unidade.value.split(' (')[0];
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var limite = setTimeout(function () { if (ctrl) ctrl.abort(); }, 70000);
+    fetch(API + '/api/site/contato', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dados), signal: ctrl ? ctrl.signal : undefined })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok) throw new Error(ERROS[res.j.error] || 'Não foi possível enviar agora. Tente de novo em instantes.');
+        var numero = WHATSAPP[unidade], linkZap = '';
+        if (numero) {
+          var texto = 'Olá! Acabei de pedir atendimento pelo site.\n'
+            + 'Nome: ' + dados.nome + '\nServiço: ' + dados.servico
+            + (dados.motor ? '\nMotor: ' + dados.motor : '') + (dados.marina ? '\nOnde está o barco: ' + dados.marina : '')
+            + (dados.mensagem ? '\n' + dados.mensagem : '');
+          linkZap = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(texto);
+        }
+        form.reset();
+        retorno.className = 'form-retorno ok';
+        retorno.textContent = 'Pedido enviado! A equipe de ' + unidade + ' vai te chamar no WhatsApp pra confirmar dia e hora.';
+        if (linkZap) {
+          // Botão (e não abrir sozinho): navegador bloqueia janela aberta depois do envio.
+          var zap = document.createElement('a');
+          zap.href = linkZap; zap.target = '_blank'; zap.rel = 'noopener';
+          zap.className = 'btn btn-vermelho'; zap.style.marginLeft = '12px';
+          zap.textContent = 'Falar agora no WhatsApp';
+          retorno.appendChild(document.createTextNode(' '));
+          retorno.appendChild(zap);
+        }
+      })
+      .catch(function (err) {
+        retorno.className = 'form-retorno erro';
+        retorno.textContent = err && err.name !== 'AbortError' && err.message && !/fetch|network/i.test(err.message) ? err.message : 'Não foi possível enviar agora. Confira sua internet e tente de novo.';
+      })
+      .then(function () { clearTimeout(limite); enviando = false; botao.disabled = false; botao.textContent = 'Enviar pedido'; });
+  });
+
+  // Esteira na água (hero): linhas que correm devagar, como o rastro do casco.
+  var cv = document.getElementById('esteira');
+  var ctx = cv.getContext('2d');
+  var parado = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var w = 0, h = 0, dpr = 1;
+  function medir() { dpr = Math.min(window.devicePixelRatio || 1, 2); w = cv.clientWidth; h = cv.clientHeight; cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  function desenhar(t) {
+    ctx.clearRect(0, 0, w, h);
+    var linhas = 14;
+    for (var i = 0; i < linhas; i++) {
+      var y0 = h * 0.52 + i * (h * 0.034);
+      var amp = 6 + i * 1.6;
+      var fase = t * 0.00025 * (1 + i * 0.07) + i;
+      ctx.beginPath();
+      for (var x = -20; x <= w + 20; x += 16) {
+        var y = y0 + Math.sin(x * 0.006 + fase) * amp + Math.sin(x * 0.0021 - fase * 0.6) * amp * 0.6;
+        if (x === -20) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      var vermelho = i === 3;
+      ctx.strokeStyle = vermelho ? 'rgba(215,36,28,0.55)' : 'rgba(154,162,173,' + (0.05 + i * 0.008) + ')';
+      ctx.lineWidth = vermelho ? 1.6 : 1;
+      ctx.stroke();
+    }
+    if (!parado) requestAnimationFrame(desenhar);
+  }
+  medir(); window.addEventListener('resize', medir);
+  desenhar(0);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  // Site institucional da Litoral Diesel — publicação própria, separada do
+  // painel (Litoral Manage). Só arquivos estáticos, sem servidor.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "litoral-diesel-site",
+  "compatibility_date": "2026-08-15",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page"
+  }
+}
